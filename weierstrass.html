@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="An HTML version of Ben Barton-Foskett's simplified explanation of the Weierstrass continuous non-differentiable function."
+    >
+    <title>Weierstrass Proof — Ben Barton-Foskett</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <h1>Weierstrass Proof</h1>
+      <p class="subtitle">Ben Barton-Foskett</p>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="javtex.html">javTex project</a>
+        <a href="#proof">Proof</a>
+        <a href="document.pdf" download>Download PDF</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <article id="proof">
+        <h2>A simplified proof of Weierstrass’s continuous non-differentiable function</h2>
+        <p class="article-meta">Ben Barton-Foskett · October 14, 2026</p>
+        <p>
+          The proof shown below is a summary of the full proof in the PDF, not a verbatim
+          copy. It is a simplified explanation of Titchmarsh’s proof, included to give an
+          accessible account of how a function can be continuous everywhere and
+          differentiable nowhere.
+        </p>
+        <p><a href="document.pdf" download>Download the original paper as a PDF</a></p>
+
+        <h2>1. Introduction</h2>
+        <p>Consider the function</p>
+        <div class="equation" aria-label="W of x equals the sum from n equals zero to infinity of b to the n times cosine of a to the n pi x">
+          W(x) = ∑<sub>n=0</sub><sup>∞</sup> b<sup>n</sup> cos(a<sup>n</sup>πx).
+        </div>
+        <p>
+          We will show that for suitable choices of <i>a</i> and <i>b</i>, this function
+          is continuous for all real <i>x</i>, but has no finite derivative at any point.
+        </p>
+
+        <h2>2. Prerequisites</h2>
+        <p>
+          The argument uses basic results about convergent sequences and series,
+          continuity, and differentiation.
+        </p>
+
+        <h2>3. Uniform convergence</h2>
+        <p>
+          A series of functions ∑u<sub>n</sub>(x) converges uniformly to S(x) on an
+          interval if, for every ε &gt; 0, there is an N such that
+          |S(x) − S<sub>n</sub>(x)| &lt; ε for every n &gt; N and every x in the interval.
+          Unlike ordinary convergence at a point, the same N works for all x in the
+          interval.
+        </p>
+
+        <h3>Cauchy criterion</h3>
+        <p>
+          A series ∑a<sub>k</sub> converges if and only if its partial sums form a
+          Cauchy sequence. Equivalently, for every ε &gt; 0, there is an N such that
+          every tail sum ∑<sub>k=n</sub><sup>m</sup>a<sub>k</sub> has magnitude less
+          than ε when m &gt; n &gt; N.
+        </p>
+
+        <h3>Weierstrass M-test</h3>
+        <p>
+          Suppose |f<sub>n</sub>(x)| ≤ M<sub>n</sub> for all x, where each M<sub>n</sub>
+          is non-negative, and the numerical series ∑M<sub>n</sub> converges. Then
+          ∑f<sub>n</sub>(x) converges absolutely and uniformly.
+        </p>
+        <p>
+          Indeed, the Cauchy criterion gives a common N for which every tail of
+          ∑M<sub>n</sub> is small. For all x, the corresponding tail of
+          ∑f<sub>n</sub>(x) is bounded by that same tail of ∑M<sub>n</sub>. The bound
+          does not depend on x, which gives uniform convergence.
+        </p>
+
+        <h3>Uniform limit theorem</h3>
+        <p>
+          If continuous functions f<sub>n</sub> converge uniformly to f, then f is
+          continuous. Given ε &gt; 0, choose N so that f<sub>N</sub> is within ε/3 of f
+          everywhere. Continuity of f<sub>N</sub> gives a δ for which
+          |f<sub>N</sub>(x) − f<sub>N</sub>(y)| &lt; ε/3 whenever |x − y| &lt; δ. Then
+        </p>
+        <div class="equation">
+          |f(x) − f(y)| ≤ |f(x) − f<sub>N</sub>(x)| +
+          |f<sub>N</sub>(x) − f<sub>N</sub>(y)| +
+          |f<sub>N</sub>(y) − f(y)| &lt; ε.
+        </div>
+
+        <h2>4. Continuity of the Weierstrass function</h2>
+        <p>
+          Take 0 &lt; b &lt; 1 and let a be an odd integer greater than 1. Since
+          |cos(a<sup>n</sup>πx)| ≤ 1, for every x and n,
+        </p>
+        <div class="equation">
+          |b<sup>n</sup> cos(a<sup>n</sup>πx)| ≤ b<sup>n</sup>.
+        </div>
+        <p>
+          The geometric series ∑b<sup>n</sup> converges. The M-test therefore shows
+          that the series defining W converges uniformly. Each term is continuous, so
+          the uniform limit theorem shows W is continuous everywhere.
+        </p>
+
+        <h2>5. Non-differentiability</h2>
+        <p>
+          The derivative of an individual term is
+        </p>
+        <div class="equation">
+          (b<sup>k</sup> cos(a<sup>k</sup>πx))′ =
+          −π(ab)<sup>k</sup> sin(a<sup>k</sup>πx).
+        </div>
+        <p>
+          The oscillations become faster as k increases, and their slopes have
+          coefficients proportional to (ab)<sup>k</sup>. When ab &gt; 1 these
+          coefficients grow, suggesting that the difference quotient may be
+          unbounded. We show this for the sufficient condition
+          ab &gt; 1 + 3π/2.
+        </p>
+
+        <h3>Split the difference quotient</h3>
+        <p>
+          For h ≠ 0 and an integer m ≥ 1, split the difference quotient into low- and
+          high-frequency terms:
+        </p>
+        <div class="equation">
+          [W(x + h) − W(x)] / h = S<sub>m</sub> + R<sub>m</sub>,
+        </div>
+        <p>
+          where S<sub>m</sub> sums terms with 0 ≤ n &lt; m, and R<sub>m</sub> sums
+          terms with n ≥ m.
+        </p>
+        <p>
+          By the mean value theorem, each cosine difference has magnitude at most
+          πa<sup>n</sup>|h|. Therefore
+        </p>
+        <div class="equation">
+          |S<sub>m</sub>| ≤ π∑<sub>n=0</sub><sup>m−1</sup>(ab)<sup>n</sup>
+          = π((ab)<sup>m</sup> − 1)/(ab − 1)
+          &lt; π(ab)<sup>m</sup>/(ab − 1). <span class="equation-label">(*)</span>
+        </div>
+
+        <h3>Choose h to control the high-frequency terms</h3>
+        <p>
+          Write a<sup>m</sup>x = α<sub>m</sub> + ξ<sub>m</sub>, where α<sub>m</sub>
+          is an integer and −1/2 ≤ ξ<sub>m</sub> &lt; 1/2. Choose
+        </p>
+        <div class="equation">
+          h = (1 − ξ<sub>m</sub>)/a<sup>m</sup>,
+          &nbsp; so &nbsp; 0 &lt; h ≤ 3/(2a<sup>m</sup>). <span class="equation-label">(**)</span>
+        </div>
+        <p>
+          Thus h tends to zero as m tends to infinity. For n ≥ m, using that a is odd,
+        </p>
+        <div class="equation">
+          cos(a<sup>n</sup>π(x + h)) = (−1)<sup>α<sub>m</sub>+1</sup>,
+        </div>
+        <p>while</p>
+        <div class="equation">
+          cos(a<sup>n</sup>πx) =
+          (−1)<sup>α<sub>m</sub></sup> cos(a<sup>n−m</sup>πξ<sub>m</sub>).
+        </div>
+        <p>
+          Consequently the high-frequency tail has one common sign and its terms
+          contain the non-negative factor
+          1 + cos(a<sup>n−m</sup>πξ<sub>m</sub>). Keeping the first term of the tail
+          gives the lower bound
+        </p>
+        <div class="equation">
+          |R<sub>m</sub>| ≥ b<sup>m</sup>/h ≥ (2/3)(ab)<sup>m</sup>.
+        </div>
+
+        <h3>Combine the bounds</h3>
+        <p>
+          Applying |S<sub>m</sub> + R<sub>m</sub>| ≥ |R<sub>m</sub>| − |S<sub>m</sub>|
+          and using (*) gives
+        </p>
+        <div class="equation">
+          |[W(x + h) − W(x)]/h| &gt;
+          ((2/3) − π/(ab − 1))(ab)<sup>m</sup>.
+        </div>
+        <p>
+          If ab &gt; 1 + 3π/2, the coefficient in parentheses is positive. Since
+          ab &gt; 1, the right-hand side grows without bound as m increases, while (**) gives
+          h → 0. The difference quotient is therefore unbounded near every x, so W has
+          no finite derivative at any point under this condition.
+        </p>
+
+        <h2>6. References</h2>
+        <ul>
+          <li>
+            E. C. Titchmarsh (1939), <cite>The Theory of Functions</cite>, 2nd edition,
+            Oxford University Press, pp. 1–8 and 351–353.
+          </li>
+          <li>
+            B. G. Wachsmuth (2018),
+            <a href="https://mathcs.org/analysis/reals/funseq/proofs/uconvcont.html">
+              “Uniform Convergence preserves Continuity”
+            </a>, MathCS.org.
+          </li>
+        </ul>
+        <p><a href="document.pdf" download>Download the original paper as a PDF</a></p>
+      </article>
+    </main>
+
+    <footer>
+      <p><a href="index.html">Back to Ben’s homepage</a></p>
+    </footer>
+  </body>
+</html>

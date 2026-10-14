@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="javTex is Ben Barton-Foskett's personal Java project: a lightweight LaTeX editor with integrated compilation and PDF viewing."
+    >
+    <title>javTex — Ben Barton-Foskett</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <h1>javTex</h1>
+      <p class="subtitle">A personal project by Ben Barton-Foskett</p>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="weierstrass.html">Weierstrass proof</a>
+        <a href="https://github.com/Bozmoss/javTex" target="_blank" rel="noopener noreferrer">GitHub repository</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section>
+        <h2>About the project</h2>
+        <p>
+          javTex is a cross-platform LaTeX editor I’m building in Java. The goal is to
+          provide a simple place to write LaTeX, compile documents, and view the
+          resulting PDFs together.
+        </p>
+        <figure class="project-figure">
+          <img
+            src="javtex-screenshot.png"
+            alt="javTex showing a LaTeX source editor beside a compiled PDF preview"
+          >
+          <figcaption>
+            The editor and compiled PDF displayed side by side in javTex.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>What it can do</h2>
+        <ul>
+          <li>Edit LaTeX with syntax highlighting, line numbers, code folding, and macros.</li>
+          <li>Create, open, and save .tex files, with prompts to protect unsaved changes.</li>
+          <li>Compile documents through an external pdflatex installation and show build output.</li>
+          <li>View compiled PDFs alongside the editor, with multi-page scrolling.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Built with</h2>
+        <p>
+          The application uses Java Swing and targets Java 21 or newer. Maven manages
+          the build and dependencies, including RSyntaxTextArea for editing, ICEpdf for
+          PDF rendering, and FlatLaf for the interface theme.
+        </p>
+        <p>
+          Building and compiling documents also requires Maven and a LaTeX distribution
+          such as MiKTeX or TeX Live, with pdflatex available on the system PATH.
+        </p>
+      </section>
+
+      <section>
+        <h2>In progress</h2>
+        <p>
+          javTex is under active development. Compilation relies on the user’s installed
+          LaTeX distribution and available packages, and the PDF viewer currently
+          provides basic image-based rendering and scrolling.
+        </p>
+      </section>
+
+      <section>
+        <h2>Source code</h2>
+        <p>
+          <a href="https://github.com/Bozmoss/javTex" target="_blank" rel="noopener noreferrer">
+            View javTex on GitHub
+          </a>
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p><a href="index.html">Back to Ben’s homepage</a></p>
+    </footer>
+  </body>
+</html>
